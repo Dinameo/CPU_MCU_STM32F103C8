@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"ktqt1\startup_stm32f103xb.o"
+"ktqt1\main.o"
+"ktqt1\stm32f1xx_it.o"
+"ktqt1\stm32f1xx_hal_msp.o"
+"ktqt1\stm32f1xx_hal_gpio_ex.o"
+"ktqt1\stm32f1xx_hal.o"
+"ktqt1\stm32f1xx_hal_rcc.o"
+"ktqt1\stm32f1xx_hal_rcc_ex.o"
+"ktqt1\stm32f1xx_hal_gpio.o"
+"ktqt1\stm32f1xx_hal_dma.o"
+"ktqt1\stm32f1xx_hal_cortex.o"
+"ktqt1\stm32f1xx_hal_pwr.o"
+"ktqt1\stm32f1xx_hal_flash.o"
+"ktqt1\stm32f1xx_hal_flash_ex.o"
+"ktqt1\stm32f1xx_hal_exti.o"
+"ktqt1\system_stm32f1xx.o"
+--strict --scatter "KTQT1\KTQT1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "KTQT1.map" -o KTQT1\KTQT1.axf

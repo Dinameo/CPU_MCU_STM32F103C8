@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"led7seg_hc595\startup_stm32f103xb.o"
+"led7seg_hc595\main.o"
+"led7seg_hc595\stm32f1xx_it.o"
+"led7seg_hc595\stm32f1xx_hal_msp.o"
+"led7seg_hc595\stm32f1xx_hal_gpio_ex.o"
+"led7seg_hc595\stm32f1xx_hal.o"
+"led7seg_hc595\stm32f1xx_hal_rcc.o"
+"led7seg_hc595\stm32f1xx_hal_rcc_ex.o"
+"led7seg_hc595\stm32f1xx_hal_gpio.o"
+"led7seg_hc595\stm32f1xx_hal_dma.o"
+"led7seg_hc595\stm32f1xx_hal_cortex.o"
+"led7seg_hc595\stm32f1xx_hal_pwr.o"
+"led7seg_hc595\stm32f1xx_hal_flash.o"
+"led7seg_hc595\stm32f1xx_hal_flash_ex.o"
+"led7seg_hc595\stm32f1xx_hal_exti.o"
+"led7seg_hc595\system_stm32f1xx.o"
+"led7seg_hc595\led7seg_hc595.o"
+--strict --scatter "LED7SEG_HC595\LED7SEG_HC595.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "LED7SEG_HC595.map" -o LED7SEG_HC595\LED7SEG_HC595.axf

@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"baitapbuoi2\startup_stm32f103xb.o"
+"baitapbuoi2\main.o"
+"baitapbuoi2\stm32f1xx_it.o"
+"baitapbuoi2\stm32f1xx_hal_msp.o"
+"baitapbuoi2\stm32f1xx_hal_gpio_ex.o"
+"baitapbuoi2\stm32f1xx_hal_uart.o"
+"baitapbuoi2\stm32f1xx_hal.o"
+"baitapbuoi2\stm32f1xx_hal_rcc.o"
+"baitapbuoi2\stm32f1xx_hal_rcc_ex.o"
+"baitapbuoi2\stm32f1xx_hal_gpio.o"
+"baitapbuoi2\stm32f1xx_hal_dma.o"
+"baitapbuoi2\stm32f1xx_hal_cortex.o"
+"baitapbuoi2\stm32f1xx_hal_pwr.o"
+"baitapbuoi2\stm32f1xx_hal_flash.o"
+"baitapbuoi2\stm32f1xx_hal_flash_ex.o"
+"baitapbuoi2\stm32f1xx_hal_exti.o"
+"baitapbuoi2\system_stm32f1xx.o"
+--strict --scatter "BaiTapBuoi2\BaiTapBuoi2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "BaiTapBuoi2.map" -o BaiTapBuoi2\BaiTapBuoi2.axf

@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"matrix_led\startup_stm32f103xb.o"
+"matrix_led\main.o"
+"matrix_led\stm32f1xx_it.o"
+"matrix_led\stm32f1xx_hal_msp.o"
+"matrix_led\stm32f1xx_hal_gpio_ex.o"
+"matrix_led\stm32f1xx_hal.o"
+"matrix_led\stm32f1xx_hal_rcc.o"
+"matrix_led\stm32f1xx_hal_rcc_ex.o"
+"matrix_led\stm32f1xx_hal_gpio.o"
+"matrix_led\stm32f1xx_hal_dma.o"
+"matrix_led\stm32f1xx_hal_cortex.o"
+"matrix_led\stm32f1xx_hal_pwr.o"
+"matrix_led\stm32f1xx_hal_flash.o"
+"matrix_led\stm32f1xx_hal_flash_ex.o"
+"matrix_led\stm32f1xx_hal_exti.o"
+"matrix_led\system_stm32f1xx.o"
+"matrix_led\ic74hc138.o"
+"matrix_led\ic74hc595.o"
+--strict --scatter "MATRIX_LED\MATRIX_LED.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "MATRIX_LED.map" -o MATRIX_LED\MATRIX_LED.axf

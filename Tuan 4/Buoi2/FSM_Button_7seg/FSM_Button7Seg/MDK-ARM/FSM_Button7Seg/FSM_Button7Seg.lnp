@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"fsm_button7seg\startup_stm32f103xb.o"
+"fsm_button7seg\main.o"
+"fsm_button7seg\stm32f1xx_it.o"
+"fsm_button7seg\stm32f1xx_hal_msp.o"
+"fsm_button7seg\stm32f1xx_hal_gpio_ex.o"
+"fsm_button7seg\stm32f1xx_hal.o"
+"fsm_button7seg\stm32f1xx_hal_rcc.o"
+"fsm_button7seg\stm32f1xx_hal_rcc_ex.o"
+"fsm_button7seg\stm32f1xx_hal_gpio.o"
+"fsm_button7seg\stm32f1xx_hal_dma.o"
+"fsm_button7seg\stm32f1xx_hal_cortex.o"
+"fsm_button7seg\stm32f1xx_hal_pwr.o"
+"fsm_button7seg\stm32f1xx_hal_flash.o"
+"fsm_button7seg\stm32f1xx_hal_flash_ex.o"
+"fsm_button7seg\stm32f1xx_hal_exti.o"
+"fsm_button7seg\system_stm32f1xx.o"
+"fsm_button7seg\sevseg.o"
+"fsm_button7seg\fsm.o"
+--strict --scatter "FSM_Button7Seg\FSM_Button7Seg.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "FSM_Button7Seg.map" -o FSM_Button7Seg\FSM_Button7Seg.axf
