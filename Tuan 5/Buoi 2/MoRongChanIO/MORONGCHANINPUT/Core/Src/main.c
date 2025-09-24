@@ -104,10 +104,61 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	/* Ver 1
+	SevSeg_DisplayDigit(&Cnf, 0);
+	*/
 	
+	// Ver 2 
+	uint8_t ButtonVal;
+	uint8_t ButtonState = 0;
   while (1)
   {
+		/* Ver 1
 		DisplayButtonNumber(&Button, &Cnf);
+		*/
+		
+		ButtonVal = GetButtonIdx(&Button, &Cnf);
+		// Ver 2 
+		if(ButtonState == 0) {
+			SevSeg_DisplayDigit(&Cnf, 0);
+			ButtonState = 1;
+		} else if(ButtonState == 1) {
+			if(ButtonVal) {
+				switch(ButtonVal) {
+					case 1:
+						SevSeg_DisplayDigit(&Cnf, 1);
+					break;
+					case 2:
+						SevSeg_DisplayDigit(&Cnf, 2);
+					break;
+					case 3:
+						SevSeg_DisplayDigit(&Cnf, 3);
+					break;
+					case 4:
+						SevSeg_DisplayDigit(&Cnf, 4);
+					break;
+					case 5:
+						SevSeg_DisplayDigit(&Cnf, 5);
+					break;
+					case 6:
+						SevSeg_DisplayDigit(&Cnf, 6);
+					break;
+					case 7:
+						SevSeg_DisplayDigit(&Cnf, 7);
+					break;
+					case 8:
+						SevSeg_DisplayDigit(&Cnf, 8);
+					break;
+					default:
+					break;
+				}
+				ButtonState = 2;
+			}
+		} else if(ButtonState == 2) {
+			if(ButtonVal) {
+				ButtonState = 1;
+			}
+		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
