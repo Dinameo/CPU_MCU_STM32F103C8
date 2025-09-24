@@ -17,6 +17,7 @@
 "matrix_led\system_stm32f1xx.o"
 "matrix_led\ic74hc138.o"
 "matrix_led\ic74hc595.o"
+"matrix_led\led_matrix.o"
 --strict --scatter "MATRIX_LED\MATRIX_LED.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

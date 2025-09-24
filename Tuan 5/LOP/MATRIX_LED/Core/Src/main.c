@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "IC74HC138.h"
 #include "IC74HC595.h"
+#include "LED_MATRIX.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,7 +44,29 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+Hardware74HC138_Cnf_t Decoder = {
+		.A_PORT = DEC_A_GPIO_Port,
+		.B_PORT = DEC_B_GPIO_Port,
+		.C_PORT = DEC_C_GPIO_Port,
+		.A_PIN = DEC_A_Pin,
+		.B_PIN = DEC_B_Pin,
+		.C_PIN = DEC_C_Pin,
+};
+	 
+Hardware74HC595_Cnf_t IcLatch = {
+		.CLK_PORT = CLK_GPIO_Port,
+		.DAT_PORT = DAT_GPIO_Port,
+		.LATCH_PORT = LATCH_GPIO_Port,
+		.CLK_PIN = CLK_Pin,
+		.DAT_PIN = DAT_Pin,
+		.LATCH_PIN = LATCH_Pin,
+};
+LedMatrixCnf_t LedMatrix = {
+	.IsIdle = 1,
+	.TimeDisplay = 0,
+	.Decoder = &Decoder,
+	.ICLatch = &IcLatch
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,23 +89,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	 Hardware74HC138_Cnf_t Decoder = {
-			.A_PORT = DEC_A_GPIO_Port,
-			.B_PORT = DEC_B_GPIO_Port,
-			.C_PORT = DEC_C_GPIO_Port,
-			.A_PIN = DEC_A_Pin,
-			.B_PIN = DEC_B_Pin,
-			.C_PIN = DEC_C_Pin,
-	};
 	 
-	Hardware74HC595_Cnf_t IcLatch = {
-			.CLK_PORT = CLK_GPIO_Port,
-			.DAT_PORT = DAT_GPIO_Port,
-			.LATCH_PORT = LATCH_GPIO_Port,
-			.CLK_PIN = CLK_Pin,
-			.DAT_PIN = DAT_Pin,
-			.LATCH_PIN = LATCH_Pin,
-	};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -140,29 +147,12 @@ int main(void)
 	uint8_t i = 0;
   while (1)
   {
-		for(uint8_t idx = 0; idx < 7; idx++) {
-			HC138_Select(&Decoder, idx);      // ch?n hàng
-			HC595_SendByte(&IcLatch, characterH[idx]); // d? li?u c?t
-			HC595_Latch(&IcLatch);
-			
-			HAL_Delay(3);
+		LED_MATRIX_Display(&LedMatrix, character[i], 200);
+		if(LedMatrix.IsIdle == 1) {
+			i++;
+			i %=3;
 		}
-		HAL_Delay(500);
-		for(uint8_t idx = 0; idx < 7; idx++) {
-			HC138_Select(&Decoder, idx);      // ch?n hàng
-			HC595_SendByte(&IcLatch, 0x00); // d? li?u c?t
-			HC595_Latch(&IcLatch);
-			
-			
-		}
-		HAL_Delay(500);
-		for(uint8_t idx = 0; idx < 7; idx++) {
-			HC138_Select(&Decoder, idx);      // ch?n hàng
-			HC595_SendByte(&IcLatch, characterU[idx]); // d? li?u c?t
-			HC595_Latch(&IcLatch);
-			
-			HAL_Delay(3);
-		}
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

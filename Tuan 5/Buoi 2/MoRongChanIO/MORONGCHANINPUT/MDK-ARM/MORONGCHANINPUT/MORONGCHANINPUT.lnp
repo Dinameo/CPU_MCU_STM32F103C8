@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"morongchaninput\startup_stm32f103xb.o"
+"morongchaninput\main.o"
+"morongchaninput\stm32f1xx_it.o"
+"morongchaninput\stm32f1xx_hal_msp.o"
+"morongchaninput\stm32f1xx_hal_gpio_ex.o"
+"morongchaninput\stm32f1xx_hal.o"
+"morongchaninput\stm32f1xx_hal_rcc.o"
+"morongchaninput\stm32f1xx_hal_rcc_ex.o"
+"morongchaninput\stm32f1xx_hal_gpio.o"
+"morongchaninput\stm32f1xx_hal_dma.o"
+"morongchaninput\stm32f1xx_hal_cortex.o"
+"morongchaninput\stm32f1xx_hal_pwr.o"
+"morongchaninput\stm32f1xx_hal_flash.o"
+"morongchaninput\stm32f1xx_hal_flash_ex.o"
+"morongchaninput\stm32f1xx_hal_exti.o"
+"morongchaninput\system_stm32f1xx.o"
+"morongchaninput\sevseg.o"
+"morongchaninput\ic74hc165.o"
+--strict --scatter "MORONGCHANINPUT\MORONGCHANINPUT.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "MORONGCHANINPUT.map" -o MORONGCHANINPUT\MORONGCHANINPUT.axf

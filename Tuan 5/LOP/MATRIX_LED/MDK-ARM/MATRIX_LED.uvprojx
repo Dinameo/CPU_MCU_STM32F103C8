@@ -505,6 +505,16 @@
               <FileType>5</FileType>
               <FilePath>..\LIBS\IC74HC595.h</FilePath>
             </File>
+            <File>
+              <FileName>LED_MATRIX.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIBS\LED_MATRIX.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED_MATRIX.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\LIBS\LED_MATRIX.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
