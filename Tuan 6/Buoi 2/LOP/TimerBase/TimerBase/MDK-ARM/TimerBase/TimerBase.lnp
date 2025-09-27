@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"timerbase\startup_stm32f103xb.o"
+"timerbase\main.o"
+"timerbase\stm32f1xx_it.o"
+"timerbase\stm32f1xx_hal_msp.o"
+"timerbase\stm32f1xx_hal_gpio_ex.o"
+"timerbase\stm32f1xx_hal_tim.o"
+"timerbase\stm32f1xx_hal_tim_ex.o"
+"timerbase\stm32f1xx_hal.o"
+"timerbase\stm32f1xx_hal_rcc.o"
+"timerbase\stm32f1xx_hal_rcc_ex.o"
+"timerbase\stm32f1xx_hal_gpio.o"
+"timerbase\stm32f1xx_hal_dma.o"
+"timerbase\stm32f1xx_hal_cortex.o"
+"timerbase\stm32f1xx_hal_pwr.o"
+"timerbase\stm32f1xx_hal_flash.o"
+"timerbase\stm32f1xx_hal_flash_ex.o"
+"timerbase\stm32f1xx_hal_exti.o"
+"timerbase\system_stm32f1xx.o"
+--strict --scatter "TimerBase\TimerBase.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "TimerBase.map" -o TimerBase\TimerBase.axf
