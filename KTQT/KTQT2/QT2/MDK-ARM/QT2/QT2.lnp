@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"qt2\startup_stm32f103xb.o"
+"qt2\main.o"
+"qt2\stm32f1xx_it.o"
+"qt2\stm32f1xx_hal_msp.o"
+"qt2\stm32f1xx_hal_gpio_ex.o"
+"qt2\stm32f1xx_hal.o"
+"qt2\stm32f1xx_hal_rcc.o"
+"qt2\stm32f1xx_hal_rcc_ex.o"
+"qt2\stm32f1xx_hal_gpio.o"
+"qt2\stm32f1xx_hal_dma.o"
+"qt2\stm32f1xx_hal_cortex.o"
+"qt2\stm32f1xx_hal_pwr.o"
+"qt2\stm32f1xx_hal_flash.o"
+"qt2\stm32f1xx_hal_flash_ex.o"
+"qt2\stm32f1xx_hal_exti.o"
+"qt2\system_stm32f1xx.o"
+"qt2\libs.o"
+--strict --scatter "QT2\QT2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "QT2.map" -o QT2\QT2.axf
