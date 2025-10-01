@@ -18,12 +18,5 @@ typedef struct {
 
 uint8_t ReadButton(BUTTON_TypeDef* hButton);
 void Pulse_Period(BUTTON_TypeDef* hButton);
-
-
-
-/* Ver 1, chi khai bao 1 trong 2
 void DisplayButtonNumber(BUTTON_TypeDef* hButton, SevSegCnf_t* Cnf);
-*/
-// Ver 2, chi khai bao 1 trong 2
-uint8_t GetButtonIdx(BUTTON_TypeDef* hButton, SevSegCnf_t* Cnf);
 #endif

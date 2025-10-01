@@ -18,7 +18,6 @@ uint8_t ReadButton(BUTTON_TypeDef* hButton) {
 	}
 	return input_byte;
 }
-/* Version 1 Dùng bien static
 void DisplayButtonNumber(BUTTON_TypeDef* hButton, SevSegCnf_t* Cnf) {
 	static uint8_t DisplayNumNow = 0;
 	uint8_t input_byte = ReadButton(hButton);
@@ -32,17 +31,4 @@ void DisplayButtonNumber(BUTTON_TypeDef* hButton, SevSegCnf_t* Cnf) {
 	}
 	DisplayNumNow = num;
 	SevSeg_DisplayDigit(Cnf, DisplayNumNow);
-} */
-// Version 2 Dùng Finite State Machine
-uint8_t GetButtonIdx(BUTTON_TypeDef* hButton, SevSegCnf_t* Cnf) {
-	uint8_t input_byte = ReadButton(hButton);
-	uint8_t num = 1;
-	while((input_byte & 0x1) != 0) {
-		input_byte >>= 1;
-		num++;
-		if(num == 9) {
-			return 0;
-		}
-	}
-	return num;
 }

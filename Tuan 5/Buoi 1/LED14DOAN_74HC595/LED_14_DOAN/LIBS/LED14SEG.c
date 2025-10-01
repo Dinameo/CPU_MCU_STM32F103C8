@@ -39,7 +39,7 @@ const uint16_t Char_Arr[] = {
 	~0X2836,
 	~0X2D00,
 	~0X1500,
-	~0X0C09//Z
+	~0X0C09 //Z
 
 };
 

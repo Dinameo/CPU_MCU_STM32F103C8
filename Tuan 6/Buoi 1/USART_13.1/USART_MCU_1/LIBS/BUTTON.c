@@ -6,7 +6,7 @@
 
 
 uint8_t ButtonReadState(ButtonCnf_t* Button) {
-	if(HAL_GPIO_ReadPin(Button->BT_Port, Button->BT_Pin) == GPIO_PIN_RESET)
+	if(HAL_GPIO_ReadPin(Button->BT_Port, Button->BT_Pin) == BUTTON_PRESSED)
 		return 0;
 	return 1;
 }
@@ -18,6 +18,7 @@ void ButtonInit(ButtonGr_t* Buttons, UART_HandleTypeDef* huart) {
 		UartTransmit_ButtonState(huart, idx, Buttons->Buttons[idx].BT_Val);
 	}
 }
+
 void ButtonToggleValue(ButtonCnf_t* Button) {
 	if(Button->BT_Val == ON) {
 		Button->BT_Val = OFF;
@@ -25,6 +26,7 @@ void ButtonToggleValue(ButtonCnf_t* Button) {
 		Button->BT_Val = ON;
 	}
 }
+
 void ButtonSendState(ButtonGr_t* Buttons, UART_HandleTypeDef* huart) {
 	for(uint8_t idx = 0; idx < Buttons->ButtonTotal; idx++) {
 		if(ButtonReadState(&Buttons->Buttons[idx]) == BUTTON_PRESSED) {

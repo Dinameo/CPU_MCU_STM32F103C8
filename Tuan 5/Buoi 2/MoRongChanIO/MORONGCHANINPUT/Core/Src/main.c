@@ -1,4 +1,4 @@
-/* USER CODE BEGIN Header */
+../* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -104,61 +104,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	/* Ver 1
 	SevSeg_DisplayDigit(&Cnf, 0);
-	*/
-	
-	// Ver 2 
-	uint8_t ButtonVal;
-	uint8_t ButtonState = 0;
   while (1)
   {
-		/* Ver 1
 		DisplayButtonNumber(&Button, &Cnf);
-		*/
-		
-		ButtonVal = GetButtonIdx(&Button, &Cnf);
-		// Ver 2 
-		if(ButtonState == 0) {
-			SevSeg_DisplayDigit(&Cnf, 0);
-			ButtonState = 1;
-		} else if(ButtonState == 1) {
-			if(ButtonVal) {
-				switch(ButtonVal) {
-					case 1:
-						SevSeg_DisplayDigit(&Cnf, 1);
-					break;
-					case 2:
-						SevSeg_DisplayDigit(&Cnf, 2);
-					break;
-					case 3:
-						SevSeg_DisplayDigit(&Cnf, 3);
-					break;
-					case 4:
-						SevSeg_DisplayDigit(&Cnf, 4);
-					break;
-					case 5:
-						SevSeg_DisplayDigit(&Cnf, 5);
-					break;
-					case 6:
-						SevSeg_DisplayDigit(&Cnf, 6);
-					break;
-					case 7:
-						SevSeg_DisplayDigit(&Cnf, 7);
-					break;
-					case 8:
-						SevSeg_DisplayDigit(&Cnf, 8);
-					break;
-					default:
-					break;
-				}
-				ButtonState = 2;
-			}
-		} else if(ButtonState == 2) {
-			if(ButtonVal) {
-				ButtonState = 1;
-			}
-		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -215,37 +164,30 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, SCK_Pin|LD_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, SCK_Pin|LD_Pin|B_Pin|C_Pin
+                          |D_Pin|E_Pin|F_Pin|G_Pin
+                          |A_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, B_Pin|C_Pin|D_Pin|E_Pin
-                          |F_Pin|G_Pin|A_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : SCK_Pin LD_Pin */
-  GPIO_InitStruct.Pin = SCK_Pin|LD_Pin;
+  /*Configure GPIO pins : SCK_Pin LD_Pin B_Pin C_Pin
+                           D_Pin E_Pin F_Pin G_Pin
+                           A_Pin */
+  GPIO_InitStruct.Pin = SCK_Pin|LD_Pin|B_Pin|C_Pin
+                          |D_Pin|E_Pin|F_Pin|G_Pin
+                          |A_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SO_Pin */
   GPIO_InitStruct.Pin = SO_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(SO_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : B_Pin C_Pin D_Pin E_Pin
-                           F_Pin G_Pin A_Pin */
-  GPIO_InitStruct.Pin = B_Pin|C_Pin|D_Pin|E_Pin
-                          |F_Pin|G_Pin|A_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

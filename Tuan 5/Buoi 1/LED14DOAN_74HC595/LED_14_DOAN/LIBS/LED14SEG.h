@@ -12,7 +12,6 @@ typedef struct {
 	uint16_t SCK_PIN;
 	uint16_t DAT_PIN;
 	uint16_t LAT_PIN;
-	
 } HardwareCnf_t;
 
 

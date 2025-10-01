@@ -58,11 +58,11 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 #define SCK_Pin GPIO_PIN_0
-#define SCK_GPIO_Port GPIOA
+#define SCK_GPIO_Port GPIOB
 #define LD_Pin GPIO_PIN_1
-#define LD_GPIO_Port GPIOA
+#define LD_GPIO_Port GPIOB
 #define SO_Pin GPIO_PIN_2
-#define SO_GPIO_Port GPIOA
+#define SO_GPIO_Port GPIOB
 #define B_Pin GPIO_PIN_10
 #define B_GPIO_Port GPIOB
 #define C_Pin GPIO_PIN_11

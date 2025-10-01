@@ -9,5 +9,6 @@
 
 void UartTransmit_ButtonState(UART_HandleTypeDef* huart, uint8_t ButtonPos, uint8_t Dat) {
 	uint8_t Byte = ((ButtonPos  & 0xF) << 4) | (Dat & 0xF);
+	
 	HAL_UART_Transmit(huart, &Byte, 1, HAL_MAX_DELAY);
 }
